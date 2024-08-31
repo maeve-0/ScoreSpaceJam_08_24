@@ -14,4 +14,8 @@ shape = SubResource("SphereShape3D_051fh")
 
 [node name="y_rotation" type="Node3D" parent="up_vector"]
 
-[node name="camera" type="Camera3D" parent="up_vector/y_rotation"]
+[node name="camera" type="Node3D" parent="up_vector/y_rotation"]
+
+[node name="camera" type="Camera3D" parent="."]
+top_level = true
+current = true

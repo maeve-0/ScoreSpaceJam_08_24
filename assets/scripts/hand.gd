@@ -5,7 +5,7 @@ extends RayCast3D
 @onready var sprites := get_node('sprites') as Node3D
 
 
-const SPEED = 20.0
+const SPEED = 25.0
 const GRAPPLING_ACCELERATION = 30.0
 var first_grab := true
 
@@ -22,6 +22,8 @@ var lifetime = 0.5
 
 var state := State.REACHING
 var player: Player
+
+var collider: Node3D
 
 
 func process_reaching(delta: float) -> void:
@@ -44,19 +46,21 @@ func process_bounced(delta: float) -> void:
 
 
 func process_grabbed(delta: float) -> void:
+	lifetime -= delta
 	player.velocity += (global_position - player.global_position).normalized() * delta * GRAPPLING_ACCELERATION
-	player.up_direction = get_collision_normal()
+	player.up_direction = collider.global_basis.y
 	if first_grab:
 		first_grab = false
 		return
-	if player.is_on_floor():
+	if global_position.distance_to(player.global_position) < 1.0 or lifetime <= 0:
 		queue_free()
 		player.hand = null
 
 
 func check_collision():
-	var collider := get_collider()
+	collider = get_collider()
 	if collider is Grabbable:
+		lifetime = 0.5
 		state = State.GRABBED
 	else:
 		state = State.BOUNCED

@@ -2,17 +2,18 @@ class_name Player
 extends CharacterBody3D
 
 
-@onready var camera := get_node('up_vector/y_rotation/camera') as Camera3D
+@onready var camera := get_node('up_vector/y_rotation/camera') as Node3D
 @onready var y_rotation := get_node('up_vector/y_rotation') as Node3D
 @onready var up_vector := get_node('up_vector') as Node3D
+@onready var actual_camera := get_node('camera') as Camera3D
 
 
 const MAX_VERTICAL_CAMERA_ANGLE = deg_to_rad(90.0)
 const MOUSE_SENSITIVITY = 0.001
-const SPEED = 4.0
+const SPEED = 8.0
 const JUMP_VELOCITY = 10.0
 const MIN_HORIZONTAL_VELOCITY = 0.5
-const MAX_HORIZONTAL_VELOCITY = 4.0
+const MAX_HORIZONTAL_VELOCITY = 12.0
 const HORIZONTAL_DAMP = 20.0
 const HORIZONTAL_ACCELERATION = 10.0
 const _90_DEGREES = deg_to_rad(90.0)
@@ -55,7 +56,7 @@ func _physics_process(delta: float) -> void:
 			input_dir.x * y_rotation.global_basis.x +
 			input_dir.y * y_rotation.global_basis.z
 	).normalized()
-	if direction:
+	if direction and (not hand or hand.state != hand.State.GRABBED):
 		velocity += direction * SPEED * delta * HORIZONTAL_ACCELERATION
 		var horizontal_velicity := velocity * get_horizontal_movement_vector()
 		if horizontal_velicity.length_squared() > MAX_HORIZONTAL_VELOCITY * MAX_HORIZONTAL_VELOCITY:
@@ -67,6 +68,13 @@ func _physics_process(delta: float) -> void:
 			velocity -= horizontal_velocity
 		else:
 			velocity -= horizontal_velocity.normalized() * delta * HORIZONTAL_DAMP
+
+	actual_camera.global_position = global_position
+
+	var current_rot := Quaternion(actual_camera.global_basis)
+	var target_rot := Quaternion(camera.global_basis)
+	var smoothrot = current_rot.slerp(target_rot, 0.2)
+	actual_camera.global_basis = Basis(smoothrot)
 
 	move_and_slide()
 
