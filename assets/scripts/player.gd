@@ -21,8 +21,13 @@ const _90_DEGREES = deg_to_rad(90.0)
 
 var hand: Hand
 
+var healing_timeout := 0.0
+
 
 func _input(event: InputEvent):
+	if Globals.player_health <= 0.0:
+		return
+
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	if event is InputEventMouseMotion:
@@ -35,11 +40,18 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Globals.player_health > 0.0:
+		healing_timeout -= delta
+		if healing_timeout <= 0.0:
+			Globals.player_health += delta * 0.4
+
+	var player_input := collect_input()
+
 	up_vector.look_at(global_position + Vector3(0.0, 0.0, -1.0), up_direction)
 	if not is_on_floor():
 		velocity += up_direction * get_gravity().y * delta
 
-	if Input.is_action_just_pressed('throw_grapple') and not hand:
+	if player_input['grapple'] and not hand:
 		var grapple := preload('res://assets/scenes/hand.tscn').instantiate()
 		grapple.player = self
 		grapple.add_exception(self)
@@ -48,15 +60,15 @@ func _physics_process(delta: float) -> void:
 		grapple.global_rotation = camera.global_rotation
 		hand = grapple
 
-	if Input.is_action_just_pressed('ui_accept') and is_on_floor():
+	if player_input['jump'] and is_on_floor():
 		velocity = up_direction * JUMP_VELOCITY
 
-	var input_dir := Input.get_vector('left', 'right', 'forward', 'backward')
+	var input_dir := player_input['movement'] as Vector2
 	var direction := (
 			input_dir.x * y_rotation.global_basis.x +
 			input_dir.y * y_rotation.global_basis.z
 	).normalized()
-	if direction and (not hand or hand.state != hand.State.GRABBED):
+	if direction and (not hand or hand.state != hand.State.GRABBED) and Globals.player_health > 0.0:
 		velocity += direction * SPEED * delta * HORIZONTAL_ACCELERATION
 		var horizontal_velicity := velocity * get_horizontal_movement_vector()
 		if horizontal_velicity.length_squared() > MAX_HORIZONTAL_VELOCITY * MAX_HORIZONTAL_VELOCITY:
@@ -78,6 +90,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	check_damage(delta)
+
 
 func get_horizontal_movement_vector() -> Vector3:
 	var horizontal_movement_vector := Vector3.ZERO
@@ -87,3 +101,42 @@ func get_horizontal_movement_vector() -> Vector3:
 	]:
 		horizontal_movement_vector += movement_vector_component
 	return horizontal_movement_vector
+
+
+const _45_DEGREES = deg_to_rad(45.0)
+
+func check_damage(delta: float):
+	if LavaControl.state == LavaControl.State.NONE:
+		return
+	var lava_normal: Vector3 = {
+		LavaControl.State.FLOOR: Vector3.UP,
+		LavaControl.State.LEFT_WALL: Vector3.RIGHT,
+		LavaControl.State.RIGHT_WALL: Vector3.LEFT,
+		LavaControl.State.CEILING: Vector3.DOWN,
+	}[LavaControl.state]
+	for index in range(get_slide_collision_count()):
+		var collision := get_slide_collision(index)
+		var normal := collision.get_normal()
+		if normal.angle_to(lava_normal) <= _45_DEGREES:
+			take_lava_damage(delta)
+			break
+
+
+func take_lava_damage(delta):
+	Globals.player_health -= delta
+	healing_timeout = 3.0
+
+
+func collect_input() -> Dictionary:
+	if Globals.player_health <= 0.0:
+		return {
+			'movement': Vector2.ZERO,
+			'jump': false,
+			'grapple': false,
+		}
+
+	return {
+		'movement': Input.get_vector('left', 'right', 'forward', 'backward'),
+		'jump': Input.is_action_just_pressed('jump'),
+		'grapple': Input.is_action_just_pressed('throw_grapple'),
+	}
