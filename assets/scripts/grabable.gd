@@ -14,6 +14,6 @@ func _ready():
 
 func generate():
 	collision_shape.shape = collision_shape.shape.duplicate()
-	(collision_shape.shape as BoxShape3D).size = Vector3(size.x, 0.1, size.y)
+	(collision_shape.shape as BoxShape3D).size = Vector3(size.x, 0.2, size.y)
 	particle_emitter.emission_box_extents = Vector3(size.x, 0.0, size.y) / 2.0
 	particle_emitter.amount = size.x * size.y * 8
