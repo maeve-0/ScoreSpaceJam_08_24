@@ -26,6 +26,7 @@ func spawn_next(after: Node3D) -> void:
 	var next_instance = segments[randi() % len(segments)].instantiate()
 	get_node('..').add_child(next_instance)
 	next_instance.global_position = next_position.global_position
+	next_instance.player = player
 	last_segment = next_instance
 
 
