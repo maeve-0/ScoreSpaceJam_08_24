@@ -19,3 +19,4 @@ shape = SubResource("SphereShape3D_051fh")
 [node name="camera" type="Camera3D" parent="."]
 top_level = true
 current = true
+fov = 90.0

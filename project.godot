@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 CaptureMouse="*res://assets/scripts/autoloads/capture_mouse.gd"
 LavaControl="*res://assets/scripts/autoloads/lava_control.gd"
+Globals="*res://assets/scripts/autoloads/globals.gd"
 
 [editor]
 
@@ -65,3 +66,4 @@ throw_grapple={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0.143412, 0.222656, 1)
