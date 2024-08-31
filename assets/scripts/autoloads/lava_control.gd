@@ -23,7 +23,7 @@ func randomize_state():
 	var next_state_array = [
 		#State.NONE,
 		#State.NONE,
-		State.NONE,
+		#State.NONE,
 		State.FLOOR,
 		State.LEFT_WALL,
 		State.RIGHT_WALL,

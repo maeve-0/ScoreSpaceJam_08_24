@@ -21,6 +21,8 @@ const _90_DEGREES = deg_to_rad(90.0)
 
 var hand: Hand
 
+var healing_timeout := 0.0
+
 
 func _input(event: InputEvent):
 	if Globals.player_health <= 0.0:
@@ -38,6 +40,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Globals.player_health > 0.0:
+		healing_timeout -= delta
+		if healing_timeout <= 0.0:
+			Globals.player_health += delta * 0.4
+
 	var player_input := collect_input()
 
 	up_vector.look_at(global_position + Vector3(0.0, 0.0, -1.0), up_direction)
@@ -117,6 +124,7 @@ func check_damage(delta: float):
 
 func take_lava_damage(delta):
 	Globals.player_health -= delta
+	healing_timeout = 3.0
 
 
 func collect_input() -> Dictionary:
