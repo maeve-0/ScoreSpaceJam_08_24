@@ -1,18 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqn3myqa5vobc"]
+[gd_scene load_steps=6 format=3 uid="uid://dqn3myqa5vobc"]
 
 [ext_resource type="Script" path="res://assets/scripts/grabable.gd" id="1_u1efb"]
+[ext_resource type="Texture2D" uid="uid://sv0omv08ejjw" path="res://assets/textures/VFX/magneto_vfx.png" id="2_maa04"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2025s"]
 size = Vector3(1, 0.2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aponm"]
-shading_mode = 0
-albedo_color = Color(0.092752, 0.59375, 0.58932, 1)
+transparency = 1
+albedo_texture = ExtResource("2_maa04")
+emission_enabled = true
+emission = Color(0.382813, 0.382813, 0.382813, 1)
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ydrnc"]
 material = SubResource("StandardMaterial3D_aponm")
-size = Vector2(0.1, 0.1)
+size = Vector2(0.3, 0.3)
 
 [node name="grabbable" type="Area3D"]
 script = ExtResource("1_u1efb")
