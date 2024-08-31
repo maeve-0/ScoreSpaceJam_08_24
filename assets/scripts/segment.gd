@@ -7,10 +7,18 @@ var material: StandardMaterial3D
 @export var life_time := 4.0
 
 
+const colors = [
+	Color.ROYAL_BLUE,
+	Color.MEDIUM_SEA_GREEN,
+	Color.DARK_VIOLET,
+]
+
+
 func _ready():
 	material = (get_node('mesh_instance') as MeshInstance3D).get_surface_override_material(0).duplicate()
 	(get_node('mesh_instance') as MeshInstance3D).set_surface_override_material(0, material)
 	material.grow_amount = -30.0
+	material.albedo_color = colors[randi() % len(colors)]
 
 
 func _physics_process(delta: float) -> void:
