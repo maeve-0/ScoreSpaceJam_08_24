@@ -15,7 +15,7 @@ billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ydrnc"]
 material = SubResource("StandardMaterial3D_aponm")
-size = Vector2(0.3, 0.3)
+size = Vector2(0.4, 0.4)
 
 [node name="grabbable" type="Area3D"]
 script = ExtResource("1_u1efb")
