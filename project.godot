@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 CaptureMouse="*res://assets/scripts/autoloads/capture_mouse.gd"
+LavaControl="*res://assets/scripts/autoloads/lava_control.gd"
 
 [editor]
 
