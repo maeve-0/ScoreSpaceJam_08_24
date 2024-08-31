@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 
@@ -17,6 +18,9 @@ const HORIZONTAL_ACCELERATION = 10.0
 const _90_DEGREES = deg_to_rad(90.0)
 
 
+var hand: Hand
+
+
 func _input(event: InputEvent):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
@@ -34,6 +38,15 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += up_direction * get_gravity().y * delta
 
+	if Input.is_action_just_pressed('throw_grapple') and not hand:
+		var grapple := preload('res://assets/scenes/hand.tscn').instantiate()
+		grapple.player = self
+		grapple.add_exception(self)
+		get_node('..').add_child(grapple)
+		grapple.global_position = global_position
+		grapple.global_rotation = camera.global_rotation
+		hand = grapple
+
 	if Input.is_action_just_pressed('ui_accept') and is_on_floor():
 		velocity = up_direction * JUMP_VELOCITY
 
@@ -48,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		if horizontal_velicity.length_squared() > MAX_HORIZONTAL_VELOCITY * MAX_HORIZONTAL_VELOCITY:
 			velocity -= horizontal_velicity
 			velocity += horizontal_velicity.normalized() * MAX_HORIZONTAL_VELOCITY
-	else:
+	elif not hand or hand.state != hand.State.GRABBED:
 		var horizontal_velocity := velocity * get_horizontal_movement_vector()
 		if horizontal_velocity.length_squared() < MIN_HORIZONTAL_VELOCITY:
 			velocity -= horizontal_velocity

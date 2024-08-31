@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhxlcvc54viwk"]
+
+[ext_resource type="Texture2D" uid="uid://cilb77fh2bp7n" path="res://assets/textures/hand_.png" id="1_dtsfy"]
+[ext_resource type="Script" path="res://assets/scripts/hand.gd" id="1_layjg"]
+[ext_resource type="Texture2D" uid="uid://cbwi6fakc8lek" path="res://assets/textures/arm_.png" id="2_dh4hy"]
+
+[node name="hand" type="RayCast3D"]
+target_position = Vector3(0, 0, -1)
+collide_with_areas = true
+script = ExtResource("1_layjg")
+
+[node name="sprites" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+
+[node name="sprite_hand" type="Sprite3D" parent="sprites"]
+texture_filter = 0
+texture = ExtResource("1_dtsfy")
+
+[node name="sprite_arm" type="Sprite3D" parent="sprites"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.08, 0.08)
+texture_filter = 0
+texture = ExtResource("2_dh4hy")
