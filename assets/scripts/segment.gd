@@ -5,7 +5,7 @@ var appearance_speed = 60.0
 var material: ShaderMaterial
 var player: Player
 
-@export var life_time := 30.0
+@export var life_time := 4.0
 
 var grow_amount := 0.0
 
@@ -26,7 +26,8 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
-	life_time -= delta
+	if Globals.player_health > 0.0:
+		life_time -= delta
 	material.set_shader_parameter('grow', grow_amount)
 	material.set_shader_parameter('lava_state', LavaControl.state)
 	material.set_shader_parameter('lava_next_state', LavaControl.next_state)

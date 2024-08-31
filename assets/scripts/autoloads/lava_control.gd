@@ -33,6 +33,8 @@ func randomize_state():
 
 
 func _physics_process(delta: float) -> void:
+	if Globals.player_health <= 0.0:
+		return
 	next_state_progress += delta * 0.25
 	if randomization_state == 0:
 		if next_state_progress >= 1.0:

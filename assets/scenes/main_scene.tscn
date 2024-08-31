@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://vav1jg5ktd2u"]
+[gd_scene load_steps=8 format=3 uid="uid://vav1jg5ktd2u"]
 
 [ext_resource type="PackedScene" uid="uid://sgoqupvnmjat" path="res://assets/scenes/segments/start_segment.tscn" id="2_0bj11"]
+[ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_6ap72"]
 [ext_resource type="Script" path="res://assets/scripts/level_generator.gd" id="2_cctxc"]
 [ext_resource type="PackedScene" uid="uid://cfovjbldxq2bw" path="res://assets/scenes/player.tscn" id="3_h1yyb"]
+[ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="5_rgbp7"]
+[ext_resource type="Script" path="res://assets/scripts/health_bar.gd" id="6_8ofpt"]
+[ext_resource type="Script" path="res://assets/scripts/death_screen.gd" id="6_fdf6h"]
 
 [node name="main_scene" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("3_h1yyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.8163, -1.72843)
+
+[node name="stars" parent="player" instance=ExtResource("2_6ap72")]
 
 [node name="lighting" type="Node3D" parent="."]
 
@@ -41,3 +47,57 @@ first_segment_path = NodePath("../start_segment")
 player_path = NodePath("../../player")
 
 [node name="start_segment" parent="enviro" instance=ExtResource("2_0bj11")]
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="health_bar" type="ColorRect" parent="ui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -64.0
+offset_right = 250.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.183594, 0, 0.00704924, 1)
+script = ExtResource("6_8ofpt")
+
+[node name="filling" type="ColorRect" parent="ui/health_bar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.796875, 0.0799588, 0.115645, 1)
+
+[node name="death_screen" type="ColorRect" parent="ui"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.631373, 0, 0.0588235, 0.509804)
+script = ExtResource("6_fdf6h")
+
+[node name="label" type="Label" parent="ui/death_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_rgbp7")
+theme_override_font_sizes/font_size = 64
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
