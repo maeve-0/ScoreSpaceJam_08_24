@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqn3myqa5vobc"]
+
+[ext_resource type="Script" path="res://assets/scripts/grabable.gd" id="1_u1efb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2025s"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aponm"]
+shading_mode = 0
+albedo_color = Color(0.092752, 0.59375, 0.58932, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_ydrnc"]
+material = SubResource("StandardMaterial3D_aponm")
+size = Vector2(0.1, 0.1)
+
+[node name="grabbable" type="Area3D"]
+script = ExtResource("1_u1efb")
+
+[node name="collision_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("BoxShape3D_2025s")
+
+[node name="particle_emitter" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+lifetime = 0.5
+mesh = SubResource("QuadMesh_ydrnc")
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0, 0.5)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
