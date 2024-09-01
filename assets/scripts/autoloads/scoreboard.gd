@@ -20,6 +20,8 @@ var submit_score_http = HTTPRequest.new()
 var set_name_http = HTTPRequest.new()
 var get_name_http = HTTPRequest.new()
 
+var get_user_position := HTTPRequest.new()
+
 
 var player_name := ''
 var synced := false
@@ -34,6 +36,13 @@ var total_scores := 0
 
 var uploading_score := false
 
+var player_position_page := 0
+
+var player_identifier := ''
+var fetching_player_position := false
+
+var member_id = null
+
 
 func _ready():
 	_authentication_request()
@@ -42,9 +51,11 @@ func _ready():
 func _authentication_request():
 	# Check if a player session exists
 	var player_session_exists = false
-	var player_identifier : String
 	var file = ConfigFile.new()
 	file.load(CONFIG_FILE_PATH)
+	member_id = file.get_value('data', 'member_id', '')
+	if member_id == '':
+		member_id = null
 	player_identifier = file.get_value('data', 'player_id', '')
 	#player_identifier = ''
  
@@ -83,6 +94,7 @@ func _on_authentication_request_completed(result, response_code, headers, body):
 		failed = true
 		return
 	var file := ConfigFile.new()
+	file.load(CONFIG_FILE_PATH)
 	file.set_value('data', 'player_id', data.player_identifier)
 	file.save(CONFIG_FILE_PATH)
 
@@ -136,6 +148,7 @@ func _on_leaderboard_request_completed(result, response_code, headers, body):
 			'player_name': item['player']['name'] if item['player']['name'] and item['player']['name'] != '' else item['player']['public_uid'],
 			'rank': item['rank'],
 			'score': item['score'],
+			'member_id': item['member_id'],
 		})
 
 	# Clear node
@@ -215,7 +228,50 @@ func _on_upload_score_request_completed(result, response_code, headers, body) :
 	json.parse(body.get_string_from_utf8())
 	
 	# Print data
-	print(json.get_data())
+	var data = json.get_data()
+	print(data)
+	member_id = data['member_id']
+	var file := ConfigFile.new()
+	file.load(CONFIG_FILE_PATH)
+	file.set_value('data', 'member_id', member_id)
+	file.save(CONFIG_FILE_PATH)
 	
 	# Clear node
 	submit_score_http.queue_free()
+
+
+func _fetch_user_position_in_scoreboard():
+	if member_id == null:
+		player_position_page = 0
+		return
+	fetching_player_position = true
+	var headers = ["Content-Type: application/json", "x-session-token:"+session_token]
+	var url := 'https://api.lootlocker.io/game/leaderboards/{board_id}/member/{player_id}'.format({
+		'board_id': leaderboard_key,
+		'player_id': member_id,
+	})
+
+	get_user_position = HTTPRequest.new()
+	add_child(get_user_position)
+	get_user_position.request_completed.connect(_on_position_fetched)
+
+	# Send request
+	get_user_position.request(url, headers, HTTPClient.METHOD_GET, "")
+
+
+func _on_position_fetched(result, response_code, headers, body):
+	fetching_player_position = false
+	var json = JSON.new()
+	json.parse(body.get_string_from_utf8())
+
+	var data = json.get_data()
+
+	if not data:
+		player_position_page = 0
+		return
+
+	print(data)
+	player_position_page = (int(data['rank']) - (int(data['rank']) % PAGE_SIZE))/PAGE_SIZE
+	print('spank', data['rank'])
+
+	get_user_position.queue_free()

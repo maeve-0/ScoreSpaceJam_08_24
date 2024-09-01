@@ -18,11 +18,13 @@ var changing_page := true
 
 
 func _ready() -> void:
+	page_input.text = str(Scoreboard.score_table_page_number + 1)
+
 	button_back.connect('pressed', func():
 		get_tree().change_scene_to_file('res://assets/scenes/main_menu.tscn')
 	)
 
-	Scoreboard.score_table_page_number = 0
+	#Scoreboard.score_table_page_number = 0
 	Scoreboard._get_leaderboards()
 
 	button_previous.connect('pressed', func():
@@ -84,6 +86,7 @@ func _physics_process(delta: float) -> void:
 		var instance = preload('res://assets/scenes/ui/scoreboard_entry.tscn').instantiate()
 		instance.get_node('name_label').text = '{rank}. {player_name}'.format(item)
 		instance.get_node('score_label').text = '{score}'.format(item)
+		instance.get_node('background_rect').visible = item['member_id'] == Scoreboard.member_id
 		scores_list.add_child(instance)
 	print(Scoreboard.score_table_page)
 

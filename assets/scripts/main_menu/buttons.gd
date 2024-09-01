@@ -12,7 +12,7 @@ func _ready() -> void:
 	)
 
 	button_scores.connect('pressed', func():
-		get_tree().change_scene_to_file('res://assets/scenes/scoreboard.tscn')
+		get_tree().change_scene_to_file('res://assets/scenes/player_page_fetching.tscn')
 	)
 
 	if OS.get_name() == 'Web':
