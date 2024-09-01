@@ -117,10 +117,10 @@ void fragment() {
 	}
 	
 	if (!lava_condition && lava_next_condition) {
-		//EMISSION.r = 0.5 + lava_next_progress * 0.5;
-		//EMISSION.g = lava_next_progress * 0.7;
-		//EMISSION.b = lava_next_progress * 0.7;
-		EMISSION = texture(emissive_texture, UV * 4.0).rgb * lava_next_progress;
+		EMISSION = (
+			texture(emissive_texture, UV * 4.0).rgb *
+			lava_next_progress * vec3(1.2, 0.8, 0.8)
+		);
 	}
 
 	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);

@@ -30,6 +30,7 @@ func process_reaching(delta: float) -> void:
 	lifetime -= delta
 	if lifetime <= 0.0:
 		state = State.BOUNCED
+		lifetime = 0.5
 		return
 	if is_colliding():
 		check_collision()
@@ -39,8 +40,9 @@ func process_reaching(delta: float) -> void:
 
 
 func process_bounced(delta: float) -> void:
+	lifetime -= delta
 	global_position += (player.global_position - global_position).normalized() * delta * SPEED
-	if global_position.distance_to(player.global_position) < 1.0:
+	if global_position.distance_to(player.global_position) < 1.0 or lifetime <= 0.0:
 		queue_free()
 		player.hand = null
 
@@ -64,6 +66,7 @@ func check_collision():
 		state = State.GRABBED
 	else:
 		state = State.BOUNCED
+		lifetime = 0.5
 
 
 func _physics_process(delta: float) -> void:

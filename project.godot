@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ScoreSpaceJam_08_24"
-run/main_scene="res://assets/scenes/main_scene.tscn"
+run/main_scene="res://assets/scenes/loading.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 CaptureMouse="*res://assets/scripts/autoloads/capture_mouse.gd"
 LavaControl="*res://assets/scripts/autoloads/lava_control.gd"
 Globals="*res://assets/scripts/autoloads/globals.gd"
+Scoreboard="*res://assets/scripts/autoloads/scoreboard.gd"
 
 [editor]
 

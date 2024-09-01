@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bapdtmghl5qvi"]
+
+[ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="1_4u4l3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v32d3"]
+bg_color = Color(0.095096, 0.334392, 0.460938, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyun5"]
+bg_color = Color(0.0838134, 0.294719, 0.40625, 1)
+
+[node name="custom_line_edit" type="LineEdit"]
+offset_right = 67.0625
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("1_4u4l3")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/focus = SubResource("StyleBoxFlat_v32d3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yyun5")
