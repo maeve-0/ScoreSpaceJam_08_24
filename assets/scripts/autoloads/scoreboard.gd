@@ -3,11 +3,10 @@ extends Node
 
 const CONFIG_FILE_PATH = 'user://LootLocker.data'
 
-const PAGE_SIZE = 11
+const PAGE_SIZE = 10
 
 
 # Use this game API key if you want to test it with a functioning leaderboard
-# "987dbd0b9e5eb3749072acc47a210996eea9feb0"
 var game_API_key = "dev_802fe359e7c64fd1861fdeedc02cc7d7"
 var development_mode = true
 var leaderboard_key = "scoreboard"

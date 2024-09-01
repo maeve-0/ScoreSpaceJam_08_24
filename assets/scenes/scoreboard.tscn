@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cme7qmqqwtlie"]
+[gd_scene load_steps=8 format=3 uid="uid://cme7qmqqwtlie"]
 
 [ext_resource type="Script" path="res://assets/scripts/main_menu/main_menu.gd" id="1_udey0"]
 [ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_1g5l6"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="4_xy0f7"]
 [ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="5_o4fum"]
 [ext_resource type="PackedScene" uid="uid://dlqhq1empcmql" path="res://assets/scenes/ui/scoreboard_entry.tscn" id="6_ebwfw"]
+[ext_resource type="PackedScene" uid="uid://bapdtmghl5qvi" path="res://assets/scenes/ui/custom_line_edit.tscn" id="6_f4y4m"]
 
 [node name="scoreboard" type="Node3D"]
 script = ExtResource("1_udey0")
@@ -58,9 +59,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -184.0
+offset_left = -312.0
 offset_top = -112.0
-offset_right = -100.0
+offset_right = -228.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -73,13 +74,44 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 100.0
+offset_left = 228.0
 offset_top = -112.0
-offset_right = 184.0
+offset_right = 312.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 0
 text = ">"
+
+[node name="button_goto_page" parent="ui" instance=ExtResource("5_o4fum")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 124.0
+offset_top = -112.0
+offset_right = 208.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "GO"
+
+[node name="page_number_input" parent="ui" instance=ExtResource("6_f4y4m")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -112.0
+offset_right = 100.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "1"
 
 [node name="fetching_label" type="Label" parent="ui"]
 layout_mode = 1

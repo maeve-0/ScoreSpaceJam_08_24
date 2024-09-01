@@ -10,6 +10,9 @@ extends Control
 @onready var button_next := get_node('button_next') as Button
 @onready var button_previous := get_node('button_previous') as Button
 
+@onready var button_goto_page := get_node('button_goto_page') as Button
+@onready var page_input := get_node('page_number_input') as LineEdit
+
 
 var changing_page := true
 
@@ -19,7 +22,7 @@ func _ready() -> void:
 		get_tree().change_scene_to_file('res://assets/scenes/main_menu.tscn')
 	)
 
-	Scoreboard.score_table_page = 0
+	Scoreboard.score_table_page_number = 0
 	Scoreboard._get_leaderboards()
 
 	button_previous.connect('pressed', func():
@@ -28,6 +31,7 @@ func _ready() -> void:
 		changing_page = true
 		scores_container.hide()
 		fetching_label.show()
+		page_input.text = str(Scoreboard.score_table_page_number+1)
 	)
 
 	button_next.connect('pressed', func():
@@ -36,12 +40,30 @@ func _ready() -> void:
 		changing_page = true
 		scores_container.hide()
 		fetching_label.show()
+		page_input.text = str(Scoreboard.score_table_page_number+1)
+	)
+
+	button_goto_page.connect('pressed', func():
+		if (not page_input.text.is_valid_int() or int(page_input.text)-1 >= Scoreboard.total_scores):
+			return
+		Scoreboard.score_table_page_number = int(page_input.text)-1
+		Scoreboard._get_leaderboards()
+		changing_page = true
+		scores_container.hide()
+		fetching_label.show()
+		page_input.text = str(Scoreboard.score_table_page_number+1)
 	)
 
 
 func _physics_process(delta: float) -> void:
 	button_next.disabled = changing_page or ((Scoreboard.score_table_page_number + 1) * Scoreboard.PAGE_SIZE >= Scoreboard.total_scores)
 	button_previous.disabled = changing_page or (Scoreboard.score_table_page_number - 1 < 0)
+	page_input.editable = not changing_page
+	button_goto_page.disabled = changing_page or (
+		(not page_input.text.is_valid_int()) or
+		(int(page_input.text)-1) * Scoreboard.PAGE_SIZE >= Scoreboard.total_scores or
+		(int(page_input.text)-1) < 0
+	)
 
 	if not changing_page:
 		return
