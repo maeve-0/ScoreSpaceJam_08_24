@@ -1,0 +1,140 @@
+[gd_scene load_steps=7 format=3 uid="uid://cme7qmqqwtlie"]
+
+[ext_resource type="Script" path="res://assets/scripts/main_menu/main_menu.gd" id="1_udey0"]
+[ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_1g5l6"]
+[ext_resource type="Script" path="res://assets/scripts/scoreboard_ui.gd" id="3_skx5y"]
+[ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="4_xy0f7"]
+[ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="5_o4fum"]
+[ext_resource type="PackedScene" uid="uid://dlqhq1empcmql" path="res://assets/scenes/ui/scoreboard_entry.tscn" id="6_ebwfw"]
+
+[node name="scoreboard" type="Node3D"]
+script = ExtResource("1_udey0")
+
+[node name="camera" type="Camera3D" parent="."]
+
+[node name="stars" parent="." instance=ExtResource("2_1g5l6")]
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_skx5y")
+
+[node name="label" type="Label" parent="ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -234.5
+offset_right = 234.5
+offset_bottom = 79.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_xy0f7")
+theme_override_font_sizes/font_size = 64
+text = "SCOREBOARD"
+
+[node name="button_back" parent="ui" instance=ExtResource("5_o4fum")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -64.0
+offset_right = 184.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BACK TO MENU"
+
+[node name="button_previous" parent="ui" instance=ExtResource("5_o4fum")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -112.0
+offset_right = -100.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "<"
+
+[node name="button_next" parent="ui" instance=ExtResource("5_o4fum")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -112.0
+offset_right = 184.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+text = ">"
+
+[node name="fetching_label" type="Label" parent="ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -20.0
+offset_right = 62.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xy0f7")
+theme_override_font_sizes/font_size = 32
+text = "FETCHING SCORES..."
+
+[node name="failed_to_fetch_label" type="Label" parent="ui"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -20.0
+offset_right = 62.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xy0f7")
+theme_override_font_sizes/font_size = 32
+text = "FAILED TO FETCH SCORES"
+
+[node name="list_container" type="ScrollContainer" parent="ui"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -259.0
+offset_top = 100.0
+offset_right = 259.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="v_box_container" type="VBoxContainer" parent="ui/list_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="scoreboard_entry" parent="ui/list_container/v_box_container" instance=ExtResource("6_ebwfw")]
+layout_mode = 2

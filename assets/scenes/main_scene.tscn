@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://vav1jg5ktd2u"]
+[gd_scene load_steps=18 format=3 uid="uid://vav1jg5ktd2u"]
 
 [ext_resource type="Script" path="res://assets/scripts/main_scene.gd" id="1_m3xbk"]
 [ext_resource type="PackedScene" uid="uid://sgoqupvnmjat" path="res://assets/scenes/segments/start_segment.tscn" id="2_0bj11"]
-[ext_resource type="PackedScene" path="res://assets/scenes/stars.tscn" id="2_6ap72"]
+[ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_6ap72"]
 [ext_resource type="Script" path="res://assets/scripts/level_generator.gd" id="2_cctxc"]
 [ext_resource type="PackedScene" uid="uid://cfovjbldxq2bw" path="res://assets/scenes/player.tscn" id="3_h1yyb"]
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="5_rgbp7"]
@@ -10,9 +10,40 @@
 [ext_resource type="Script" path="res://assets/scripts/death_screen.gd" id="6_fdf6h"]
 [ext_resource type="Script" path="res://assets/scripts/death_barrier.gd" id="6_hr4rw"]
 [ext_resource type="Script" path="res://assets/scripts/score_label.gd" id="10_la02o"]
+[ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="11_alwep"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ll147"]
 size = Vector3(100, 1, 500)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3ocm"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.734375, 0, 0.0886372, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chlbk"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.733333, 0, 0.0901961, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3xe2"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.733333, 0, 0.0901961, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l27wd"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.414063, 0, 0.0509274, 1)
+skew = Vector2(0.5, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvnnl"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.648438, 0, 0.0797542, 1)
+skew = Vector2(0.5, 0)
 
 [node name="main_scene" type="Node3D"]
 script = ExtResource("1_m3xbk")
@@ -153,6 +184,46 @@ text = "SCORE: "
 script = ExtResource("10_la02o")
 prefix = "SCORE: "
 final = true
+
+[node name="submit_button" parent="ui/death_screen" instance=ExtResource("11_alwep")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 108.0
+offset_right = 150.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_u3ocm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_chlbk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t3xe2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l27wd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uvnnl")
+text = "SUBMIT SCORE"
+
+[node name="exit_to_menu" parent="ui/death_screen" instance=ExtResource("11_alwep")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 156.0
+offset_right = 150.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_u3ocm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_chlbk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t3xe2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l27wd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uvnnl")
+text = "BACK TO MENU"
 
 [node name="score_label" type="Label" parent="ui"]
 layout_mode = 1
