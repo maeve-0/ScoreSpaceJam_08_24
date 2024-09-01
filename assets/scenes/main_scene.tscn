@@ -136,6 +136,7 @@ offset_bottom = 40.0
 color = Color(0.796875, 0.0799588, 0.115645, 1)
 
 [node name="death_screen" type="ColorRect" parent="ui"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
