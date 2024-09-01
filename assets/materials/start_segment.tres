@@ -112,7 +112,7 @@ void fragment() {
 			ALBEDO = albedo_tex.rgb;
 		}
 		else {
-			ALBEDO = albedo.rgb * albedo_tex.rgb;
+			ALBEDO = albedo.rgb * albedo_tex.rgb * clamp((FRAGCOORD.z * 200.0), 0.0, 1.0);
 		}
 	}
 	
