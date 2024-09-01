@@ -4,6 +4,7 @@ extends Node
 
 var segments = [
 	preload('res://assets/scenes/segments/segment_1.tscn'),
+	preload('res://assets/scenes/segments/segment_2.tscn'),
 ]
 
 

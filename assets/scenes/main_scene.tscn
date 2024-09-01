@@ -136,7 +136,6 @@ offset_bottom = 40.0
 color = Color(0.796875, 0.0799588, 0.115645, 1)
 
 [node name="death_screen" type="ColorRect" parent="ui"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -186,6 +185,7 @@ prefix = "SCORE: "
 final = true
 
 [node name="submit_button" parent="ui/death_screen" instance=ExtResource("11_alwep")]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -205,7 +205,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_l27wd")
 theme_override_styles/normal = SubResource("StyleBoxFlat_uvnnl")
 text = "SUBMIT SCORE"
 
-[node name="exit_to_menu" parent="ui/death_screen" instance=ExtResource("11_alwep")]
+[node name="restart_button" parent="ui/death_screen" instance=ExtResource("11_alwep")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -216,6 +216,26 @@ offset_left = -150.0
 offset_top = 156.0
 offset_right = 150.0
 offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_u3ocm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_chlbk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t3xe2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l27wd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uvnnl")
+text = "RESTART [R]"
+
+[node name="exit_to_menu" parent="ui/death_screen" instance=ExtResource("11_alwep")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 204.0
+offset_right = 150.0
+offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/focus = SubResource("StyleBoxFlat_u3ocm")
