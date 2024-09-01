@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/scripts/main_scene.gd" id="1_m3xbk"]
 [ext_resource type="PackedScene" uid="uid://sgoqupvnmjat" path="res://assets/scenes/segments/start_segment.tscn" id="2_0bj11"]
-[ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_6ap72"]
+[ext_resource type="PackedScene" path="res://assets/scenes/stars.tscn" id="2_6ap72"]
 [ext_resource type="Script" path="res://assets/scripts/level_generator.gd" id="2_cctxc"]
 [ext_resource type="PackedScene" uid="uid://cfovjbldxq2bw" path="res://assets/scenes/player.tscn" id="3_h1yyb"]
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="5_rgbp7"]
