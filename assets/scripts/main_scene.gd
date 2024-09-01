@@ -9,6 +9,9 @@ const MAX_DISTANCE = 50.0
 
 
 func _physics_process(delta: float) -> void:
+	if Globals.player_health > 0.0:
+		Globals.score += delta * 5.0
+
 	if player.global_position.z >= -MAX_DISTANCE:
 		return
 
