@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://db1w1p6s6c7xv"]
+
+[ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="1_snqc6"]
+[ext_resource type="Script" path="res://assets/scripts/loading/label.gd" id="2_1g360"]
+
+[node name="loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 841.0
+offset_bottom = 172.0
+theme_override_fonts/font = ExtResource("1_snqc6")
+theme_override_font_sizes/font_size = 32
+text = "SYNCHRONIZING WITH LOOTLOCKER"
+script = ExtResource("2_1g360")

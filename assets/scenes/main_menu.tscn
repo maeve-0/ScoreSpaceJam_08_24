@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgnefcojxt31c"]
+
+[ext_resource type="Script" path="res://assets/scripts/main_menu/main_menu.gd" id="1_eqdux"]
+[ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_vvmnb"]
+[ext_resource type="Script" path="res://assets/scripts/main_menu/name_controls.gd" id="3_do8jj"]
+[ext_resource type="PackedScene" uid="uid://bapdtmghl5qvi" path="res://assets/scenes/ui/custom_line_edit.tscn" id="3_rcdcn"]
+[ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="4_v8nfi"]
+[ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="5_hgkj0"]
+[ext_resource type="Script" path="res://assets/scripts/main_menu/buttons.gd" id="7_rb5i2"]
+
+[node name="main_menu" type="Node3D"]
+script = ExtResource("1_eqdux")
+
+[node name="camera" type="Camera3D" parent="."]
+
+[node name="stars" parent="." instance=ExtResource("2_vvmnb")]
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="name_controls" type="Control" parent="ui"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -203.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("3_do8jj")
+
+[node name="custom_line_edit" parent="ui/name_controls" instance=ExtResource("3_rcdcn")]
+layout_mode = 0
+offset_left = -282.0
+offset_top = 70.0
+offset_right = 165.0
+offset_bottom = 130.0
+
+[node name="custom_button" parent="ui/name_controls" instance=ExtResource("4_v8nfi")]
+layout_mode = 0
+offset_left = -292.0
+offset_top = 135.0
+offset_right = 154.0
+offset_bottom = 175.0
+text = "ACCEPT"
+
+[node name="label" type="Label" parent="ui/name_controls"]
+layout_mode = 0
+offset_left = -172.0
+offset_top = 23.0
+offset_right = 61.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("5_hgkj0")
+theme_override_font_sizes/font_size = 32
+text = "PLAYER NAME"
+
+[node name="buttons" type="VBoxContainer" parent="ui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -196.0
+offset_right = 300.0
+offset_bottom = -32.0
+grow_vertical = 0
+alignment = 2
+script = ExtResource("7_rb5i2")
+
+[node name="start_button" parent="ui/buttons" instance=ExtResource("4_v8nfi")]
+layout_mode = 2
+text = "START"
+
+[node name="scores_button" parent="ui/buttons" instance=ExtResource("4_v8nfi")]
+layout_mode = 2
+text = "SCORES"
+
+[node name="exit_button" parent="ui/buttons" instance=ExtResource("4_v8nfi")]
+layout_mode = 2
+text = "EXIT"

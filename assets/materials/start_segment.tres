@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cnpxysamd43ef"]
 
-[ext_resource type="Texture2D" uid="uid://cx6cbqk4xxsda" path="res://assets/textures/test_tileset.png" id="1_i2pod"]
 [ext_resource type="Texture2D" uid="uid://cnxshwtqtog6r" path="res://assets/textures/walls_lava_4_black.png" id="1_nsoly"]
+[ext_resource type="Texture2D" uid="uid://dlrwx5v4r4tle" path="res://assets/textures/wallmagneto.png" id="2_iw23f"]
 [ext_resource type="Texture2D" uid="uid://bbaok55ohi74l" path="res://assets/textures/walls_lava_3.png" id="2_yvjw3"]
 
 [sub_resource type="Shader" id="Shader_31xee"]
@@ -108,17 +108,19 @@ void fragment() {
 	else {
 		albedo_tex = texture(texture_albedo, base_uv);
 		if (UV.x > 0.25) {
-			ALBEDO = vec3(0.6, 0.6, 1.0) * albedo_tex.rgb;
+			//ALBEDO = vec3(0.6, 0.6, 1.0) * albedo_tex.rgb;
+			ALBEDO = albedo_tex.rgb;
 		}
 		else {
-			ALBEDO = albedo.rgb * albedo_tex.rgb;
+			ALBEDO = albedo.rgb * albedo_tex.rgb * clamp((FRAGCOORD.z * 200.0), 0.0, 1.0);
 		}
 	}
 	
 	if (!lava_condition && lava_next_condition) {
-		EMISSION.r = 0.5 + lava_next_progress * 0.5;
-		EMISSION.g = lava_next_progress * 0.7;
-		EMISSION.b = lava_next_progress * 0.7;
+		EMISSION = (
+			texture(emissive_texture, UV * 4.0).rgb *
+			lava_next_progress * vec3(1.2, 0.8, 0.8)
+		);
 	}
 
 	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
@@ -149,6 +151,6 @@ shader_parameter/player_z = null
 shader_parameter/lava_state = null
 shader_parameter/lava_next_state = null
 shader_parameter/lava_next_progress = null
-shader_parameter/texture_albedo = ExtResource("1_i2pod")
+shader_parameter/texture_albedo = ExtResource("2_iw23f")
 shader_parameter/texture_lava = ExtResource("2_yvjw3")
 shader_parameter/emissive_texture = ExtResource("1_nsoly")

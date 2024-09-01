@@ -21,14 +21,12 @@ var randomization_state := 0
 
 func randomize_state():
 	var next_state_array = [
-		#State.NONE,
-		#State.NONE,
-		#State.NONE,
 		State.FLOOR,
 		State.LEFT_WALL,
 		State.RIGHT_WALL,
 		State.CEILING,
 	]
+	next_state_array.erase(state)
 	next_state = next_state_array[randi() % len(next_state_array)]
 
 

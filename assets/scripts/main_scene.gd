@@ -8,6 +8,18 @@ extends Node3D
 const MAX_DISTANCE = 50.0
 
 
+func _ready() -> void:
+	Globals.score = 0
+
+	LavaControl.state = LavaControl.State.NONE
+	LavaControl.next_state = LavaControl.State.NONE
+
+	LavaControl.next_state_progress = 0.0
+	LavaControl.randomization_state = 0
+
+	Globals.player_health = 1.0
+
+
 func _physics_process(delta: float) -> void:
 	if Globals.player_health > 0.0:
 		Globals.score += delta * 5.0
