@@ -10,7 +10,6 @@ data = PackedVector3Array(1, 0, -1.0001, 0, 0, 0, 0, 0, -1.0001, 1, 0, 0, 0, 0, 
 
 [node name="segment1" type="StaticBody3D"]
 script = ExtResource("1_ewn5i")
-life_time = 6.0
 
 [node name="mesh_instance" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_ct1je")
