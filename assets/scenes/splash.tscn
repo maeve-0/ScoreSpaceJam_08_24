@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba3iup4h14or0"]
+
+[ext_resource type="Texture2D" uid="uid://8kpeysu31by8" path="res://assets/textures/slime_splash.png" id="1_s3fet"]
+
+[node name="splash" type="Node3D"]
+
+[node name="splash" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+pixel_size = 0.015
+axis = 1
+texture = ExtResource("1_s3fet")

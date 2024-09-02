@@ -47,6 +47,9 @@ func _physics_process(delta: float) -> void:
 			Globals.score += 30
 			Sounds.play_slime_kill()
 			Sounds.play_cut()
+			var instance := preload('res://assets/scenes/splash.tscn').instantiate()
+			get_node('..').add_child(instance)
+			instance.global_transform = global_transform
 			queue_free()
 
 
