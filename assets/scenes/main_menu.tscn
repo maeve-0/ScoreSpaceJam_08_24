@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgnefcojxt31c"]
+[gd_scene load_steps=10 format=3 uid="uid://bgnefcojxt31c"]
 
 [ext_resource type="Script" path="res://assets/scripts/main_menu/main_menu.gd" id="1_eqdux"]
 [ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_vvmnb"]
 [ext_resource type="Script" path="res://assets/scripts/main_menu/name_controls.gd" id="3_do8jj"]
+[ext_resource type="Texture2D" uid="uid://dpg1muv1d1q1b" path="res://assets/textures/logo_grabbity.png" id="3_hmu1p"]
 [ext_resource type="PackedScene" uid="uid://bapdtmghl5qvi" path="res://assets/scenes/ui/custom_line_edit.tscn" id="3_rcdcn"]
 [ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="4_v8nfi"]
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="5_hgkj0"]
@@ -23,6 +24,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="logo" type="TextureRect" parent="ui"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 896.0
+offset_bottom = 392.0
+texture = ExtResource("3_hmu1p")
+expand_mode = 2
 
 [node name="name_controls" type="Control" parent="ui"]
 layout_mode = 1
