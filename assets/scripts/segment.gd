@@ -24,6 +24,8 @@ func _ready():
 	material.set_shader_parameter('albedo', colors[randi() % len(colors)])
 	material.set_shader_parameter('grow', grow_amount)
 
+	life_time -= minf(Globals.player_max_distance/2000.0 * 0.5, 0.5)
+
 
 func _physics_process(delta: float) -> void:
 	if Globals.player_health > 0.0:

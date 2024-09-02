@@ -66,6 +66,8 @@ func check_collision():
 	if collider is Grabbable:
 		lifetime = 1.0
 		state = State.GRABBED
+	elif collider is SlimeProjectile or collider is Enemy:
+		return
 	else:
 		state = State.BOUNCED
 		lifetime = 0.5

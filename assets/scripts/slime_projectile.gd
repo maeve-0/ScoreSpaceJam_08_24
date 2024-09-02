@@ -1,3 +1,4 @@
+class_name SlimeProjectile
 extends Area3D
 
 

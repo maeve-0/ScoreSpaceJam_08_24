@@ -10,6 +10,9 @@ enum State {
 }
 
 
+const TIME_SCALE = 0.25
+
+
 var state := State.NONE
 var next_state := State.NONE
 
@@ -33,7 +36,7 @@ func randomize_state():
 func _physics_process(delta: float) -> void:
 	if Globals.player_health <= 0.0:
 		return
-	next_state_progress += delta * 0.25
+	next_state_progress += delta * (TIME_SCALE+additional_time_scale())
 	if randomization_state == 0:
 		if next_state_progress >= 1.0:
 			state = next_state
@@ -44,3 +47,7 @@ func _physics_process(delta: float) -> void:
 			randomize_state()
 			next_state_progress = 0
 			randomization_state = 0
+
+
+func additional_time_scale() -> float:
+	return minf(Globals.player_max_distance/2000.0 * 0.1, 0.2)
