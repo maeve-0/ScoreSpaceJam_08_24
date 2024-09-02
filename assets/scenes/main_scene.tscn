@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://assets/scripts/health_bar.gd" id="6_8ofpt"]
 [ext_resource type="Script" path="res://assets/scripts/death_screen.gd" id="6_fdf6h"]
 [ext_resource type="Script" path="res://assets/scripts/death_barrier.gd" id="6_hr4rw"]
-[ext_resource type="Texture2D" uid="uid://b64ba8fr8vadr" path="res://assets/textures/sword.png" id="7_dhi0w"]
+[ext_resource type="Texture2D" uid="uid://cfar4ootwprr3" path="res://assets/textures/sword_hand.png" id="7_e3kf5"]
 [ext_resource type="Script" path="res://assets/scripts/weapon.gd" id="8_g55d7"]
 [ext_resource type="Texture2D" uid="uid://coprgya710k1f" path="res://assets/textures/smudge.png" id="9_0c52s"]
 [ext_resource type="Script" path="res://assets/scripts/score_label.gd" id="10_la02o"]
@@ -124,7 +124,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
-texture = ExtResource("7_dhi0w")
+texture = ExtResource("7_e3kf5")
 expand_mode = 1
 script = ExtResource("8_g55d7")
 
@@ -135,6 +135,11 @@ offset_bottom = 40.0
 texture = ExtResource("9_0c52s")
 expand_mode = 1
 script = ExtResource("10_mgl66")
+
+[node name="hand" type="TextureRect" parent="ui"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="pain_indication" type="ColorRect" parent="ui"]
 visible = false

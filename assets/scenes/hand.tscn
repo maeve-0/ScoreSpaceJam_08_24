@@ -13,7 +13,7 @@ script = ExtResource("1_layjg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 
 [node name="sprite_hand" type="Sprite3D" parent="sprites"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00611324)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.023231, 0, 0.00611324)
 pixel_size = 0.0025
 texture_filter = 0
 texture = ExtResource("2_2a1h7")
