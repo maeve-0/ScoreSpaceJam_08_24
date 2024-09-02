@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi8t18586ob8x"]
+
+[ext_resource type="Script" path="res://assets/scripts/autoloads/music.gd" id="1_j021t"]
+[ext_resource type="AudioStream" uid="uid://jnge87i00rm" path="res://assets/music/hectic-808-drum-loop-32989.mp3" id="2_ughqu"]
+[ext_resource type="AudioStream" uid="uid://nawb87lgtvng" path="res://assets/music/action-loop-e-90-bpm-brvhrtz-233462.mp3" id="3_e6x15"]
+
+[node name="music" type="Node"]
+script = ExtResource("1_j021t")
+
+[node name="menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ughqu")
+
+[node name="gameplay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e6x15")

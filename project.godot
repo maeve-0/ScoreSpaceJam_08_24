@@ -21,6 +21,7 @@ CaptureMouse="*res://assets/scripts/autoloads/capture_mouse.gd"
 LavaControl="*res://assets/scripts/autoloads/lava_control.gd"
 Globals="*res://assets/scripts/autoloads/globals.gd"
 Scoreboard="*res://assets/scripts/autoloads/scoreboard.gd"
+Music="*res://assets/scenes/autoloads/music.tscn"
 
 [editor]
 

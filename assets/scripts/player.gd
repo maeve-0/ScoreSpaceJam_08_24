@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 
 	if player_input['jump'] and coyote_time > 0.0:
 		velocity = up_direction * JUMP_VELOCITY
+		coyote_time = 0.0
 
 	if player_input['attack'] and Globals.player_attack_time <= 0:
 		Globals.player_attack_time = 0.5

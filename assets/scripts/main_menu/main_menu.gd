@@ -6,6 +6,7 @@ extends Node3D
 
 func _ready() -> void:
 	stars.rotation = Globals.menu_stars_rotation
+	Music.play('menu')
 
 
 func _physics_process(delta: float) -> void:

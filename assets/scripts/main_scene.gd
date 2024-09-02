@@ -22,6 +22,8 @@ func _ready() -> void:
 	distances_run = 0
 	Globals.player_max_distance = 0.0
 
+	Music.play('gameplay')
+
 
 func _physics_process(delta: float) -> void:
 	if Globals.player_health > 0.0:
