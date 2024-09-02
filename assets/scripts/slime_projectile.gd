@@ -6,6 +6,8 @@ const SPEED = 20.0
 
 var movement_vector: Vector3
 
+var lifetime := 15.0
+
 
 func on_body_enter(body):
 	if body is Enemy:
@@ -23,4 +25,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	lifetime -= delta
+	if lifetime <= 0.0:
+		queue_free()
 	position += movement_vector * SPEED * delta
