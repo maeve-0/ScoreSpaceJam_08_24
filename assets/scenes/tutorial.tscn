@@ -185,6 +185,7 @@ expand_mode = 1
 script = ExtResource("11_gtex4")
 
 [node name="hand" type="TextureRect" parent="ui"]
+layout_mode = 0
 offset_right = 854.0
 offset_bottom = 480.0
 texture = ExtResource("14_x5dwx")
@@ -330,4 +331,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_x6mxm")
 text = "BACK TO MENU"
 
 [node name="pause" parent="ui" instance=ExtResource("19_eige8")]
+visible = false
 layout_mode = 1

@@ -321,4 +321,5 @@ horizontal_alignment = 2
 script = ExtResource("10_la02o")
 
 [node name="pause" parent="ui" instance=ExtResource("18_8c788")]
+visible = false
 layout_mode = 1
