@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw0kau30j4ias"]
+
+[ext_resource type="Script" path="res://assets/scripts/volume_sliders.gd" id="1_3hcyd"]
+[ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="2_netyv"]
+
+[node name="volume_sliders" type="VBoxContainer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_3hcyd")
+
+[node name="slider_master" type="Control" parent="."]
+custom_minimum_size = Vector2(320, 64)
+layout_mode = 2
+
+[node name="h_slider" type="HSlider" parent="slider_master"]
+layout_mode = 0
+offset_top = 35.0
+offset_right = 285.0
+offset_bottom = 51.0
+min_value = -42.0
+max_value = 0.0
+
+[node name="label" type="Label" parent="slider_master"]
+layout_mode = 2
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("2_netyv")
+theme_override_font_sizes/font_size = 32
+text = "MASTER:"
+
+[node name="slider_sfx" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+
+[node name="h_slider" type="HSlider" parent="slider_sfx"]
+layout_mode = 0
+offset_top = 35.0
+offset_right = 285.0
+offset_bottom = 51.0
+min_value = -42.0
+max_value = 0.0
+
+[node name="label" type="Label" parent="slider_sfx"]
+layout_mode = 2
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("2_netyv")
+theme_override_font_sizes/font_size = 32
+text = "SOUND EFFECTS:"
+
+[node name="slider_music" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+
+[node name="h_slider" type="HSlider" parent="slider_music"]
+layout_mode = 0
+offset_top = 35.0
+offset_right = 285.0
+offset_bottom = 51.0
+min_value = -42.0
+max_value = 0.0
+
+[node name="label" type="Label" parent="slider_music"]
+layout_mode = 2
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("2_netyv")
+theme_override_font_sizes/font_size = 32
+text = "MUSIC:"

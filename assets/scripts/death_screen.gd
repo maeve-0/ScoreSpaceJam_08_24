@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 
 	if visible:
 		if not was_visible:
-			Scoreboard._upload_score(Globals.score)
+			if get_tree().current_scene.scene_file_path == 'res://assets/scenes/main_scene.tscn':
+				Scoreboard._upload_score(Globals.score)
 			Sounds.play_death()
 			was_visible = true

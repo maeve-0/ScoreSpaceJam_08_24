@@ -117,6 +117,8 @@ func get_horizontal_movement_vector() -> Vector3:
 const _45_DEGREES = deg_to_rad(45.0)
 
 func check_damage(delta: float):
+	if get_tree().current_scene.scene_file_path != 'res://assets/scenes/main_scene.tscn':
+		return
 	if LavaControl.state == LavaControl.State.NONE:
 		return
 	var lava_normal: Vector3 = {
