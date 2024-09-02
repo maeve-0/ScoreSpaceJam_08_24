@@ -8,6 +8,7 @@ var player: Player
 var player_attack_time := 0.0
 var player_max_distance := 0.0
 var player_pain_time := 0.0
+var mouse_sensitivity := 1.0
 
 
 func _physics_process(delta: float) -> void:

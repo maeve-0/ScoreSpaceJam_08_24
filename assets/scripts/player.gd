@@ -33,8 +33,8 @@ func _input(event: InputEvent):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	if event is InputEventMouseMotion:
-		y_rotation.rotation.y -= event.screen_relative.x * MOUSE_SENSITIVITY
-		camera.rotation.x = clampf(camera.rotation.x - event.screen_relative.y * MOUSE_SENSITIVITY, -MAX_VERTICAL_CAMERA_ANGLE, MAX_VERTICAL_CAMERA_ANGLE)
+		y_rotation.rotation.y -= event.screen_relative.x * MOUSE_SENSITIVITY * Globals.mouse_sensitivity
+		camera.rotation.x = clampf(camera.rotation.x - event.screen_relative.y * MOUSE_SENSITIVITY * Globals.mouse_sensitivity, -MAX_VERTICAL_CAMERA_ANGLE, MAX_VERTICAL_CAMERA_ANGLE)
 
 
 func _ready() -> void:

@@ -9,9 +9,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -100.0
-offset_bottom = 100.0
+offset_left = -320.0
+offset_top = -134.0
+offset_right = 31.0
+offset_bottom = 134.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_3hcyd")
@@ -75,3 +76,29 @@ offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("2_netyv")
 theme_override_font_sizes/font_size = 32
 text = "MUSIC:"
+
+[node name="space" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="slider_mouse_sensitivity" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+
+[node name="h_slider" type="HSlider" parent="slider_mouse_sensitivity"]
+layout_mode = 0
+offset_top = 35.0
+offset_right = 285.0
+offset_bottom = 51.0
+min_value = 0.1
+max_value = 2.0
+step = 0.01
+value = 0.1
+
+[node name="label" type="Label" parent="slider_mouse_sensitivity"]
+layout_mode = 2
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("2_netyv")
+theme_override_font_sizes/font_size = 32
+text = "MOUSE SENSITIVITY:"
