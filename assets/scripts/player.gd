@@ -17,6 +17,8 @@ const MAX_HORIZONTAL_VELOCITY = 12.0
 const HORIZONTAL_DAMP = 20.0
 const HORIZONTAL_ACCELERATION = 10.0
 const _90_DEGREES = deg_to_rad(90.0)
+const COYOTE_TIME = 0.2
+var coyote_time := 0.0
 
 
 var hand: Hand
@@ -49,7 +51,10 @@ func _physics_process(delta: float) -> void:
 	var player_input := collect_input()
 
 	up_vector.look_at(global_position + Vector3(0.0, 0.0, -1.0), up_direction)
-	if not is_on_floor():
+	if is_on_floor():
+		coyote_time = COYOTE_TIME
+	else:
+		coyote_time -= delta
 		velocity += up_direction * get_gravity().y * delta
 
 	if player_input['grapple'] and not hand:
@@ -61,7 +66,7 @@ func _physics_process(delta: float) -> void:
 		grapple.global_rotation = camera.global_rotation
 		hand = grapple
 
-	if player_input['jump'] and is_on_floor():
+	if player_input['jump'] and coyote_time > 0.0:
 		velocity = up_direction * JUMP_VELOCITY
 
 	if player_input['attack'] and Globals.player_attack_time <= 0:
