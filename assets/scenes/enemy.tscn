@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cogev7onc5v72"]
+
+[ext_resource type="Script" path="res://assets/scripts/enemy.gd" id="1_86nsn"]
+[ext_resource type="Texture2D" uid="uid://dot6nvog26686" path="res://assets/textures/slajm_body_2.png" id="1_piu44"]
+[ext_resource type="Texture2D" uid="uid://bpt3mtw4kyvq2" path="res://assets/textures/slajm_body.png" id="2_67eok"]
+[ext_resource type="Texture2D" uid="uid://j4cwphpsvtqy" path="res://assets/textures/slajm_head.png" id="3_73mcc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dv2n2"]
+
+[node name="enemy" type="CharacterBody3D"]
+script = ExtResource("1_86nsn")
+
+[node name="body" type="Node3D" parent="."]
+
+[node name="body" type="Node3D" parent="body"]
+
+[node name="body" type="Sprite3D" parent="body/body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720494, 0.429111, 0.0720494)
+pixel_size = 0.007
+billboard = 1
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_67eok")
+
+[node name="head" type="Sprite3D" parent="body/body/body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.238)
+pixel_size = 0.005
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("3_73mcc")
+
+[node name="sprite_3d" type="Sprite3D" parent="body"]
+transform = Transform3D(1.31134e-07, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, -1.31134e-07, -5.73206e-15, -0.0720494, 0.00999999, 0.427589)
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("1_piu44")
+
+[node name="collsion_shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_dv2n2")
