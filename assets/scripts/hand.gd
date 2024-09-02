@@ -80,5 +80,5 @@ func _physics_process(delta: float) -> void:
 		State.GRABBED:
 			process_grabbed(delta)
 
-	sprites.look_at(player.global_position - player.camera.global_basis.y * 0.3, player.camera.global_basis.y)
+	sprites.look_at(player.global_position - player.camera.global_basis.y * 0.2  - player.camera.global_basis.x * 0.15, player.camera.global_basis.y)
 	sprites.scale.z = -sprites.global_position.distance_to(player.global_position) * 0.5/0.08

@@ -37,6 +37,7 @@ func _input(event: InputEvent):
 
 func _ready() -> void:
 	up_direction = Vector3.UP
+	Globals.player = self
 
 
 func _physics_process(delta: float) -> void:
@@ -62,6 +63,9 @@ func _physics_process(delta: float) -> void:
 
 	if player_input['jump'] and is_on_floor():
 		velocity = up_direction * JUMP_VELOCITY
+
+	if player_input['attack'] and Globals.player_attack_time <= 0:
+		Globals.player_attack_time = 0.5
 
 	var input_dir := player_input['movement'] as Vector2
 	var direction := (
@@ -133,10 +137,12 @@ func collect_input() -> Dictionary:
 			'movement': Vector2.ZERO,
 			'jump': false,
 			'grapple': false,
+			'attack': false,
 		}
 
 	return {
 		'movement': Input.get_vector('left', 'right', 'forward', 'backward'),
 		'jump': Input.is_action_just_pressed('jump'),
 		'grapple': Input.is_action_just_pressed('throw_grapple'),
+		'attack': Input.is_action_just_pressed('attack'),
 	}

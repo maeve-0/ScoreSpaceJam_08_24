@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp58ruoeu6ide"]
+
+[ext_resource type="Script" path="res://assets/scripts/slime_projectile.gd" id="1_4hfw4"]
+[ext_resource type="Texture2D" uid="uid://cdtqvxbu4f6a2" path="res://assets/textures/slime_projectile.png" id="2_ahnad"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rry3j"]
+radius = 0.272374
+
+[node name="slime_projectile" type="Area3D"]
+script = ExtResource("1_4hfw4")
+
+[node name="sprite_3d" type="Sprite3D" parent="."]
+billboard = 1
+alpha_cut = 1
+texture = ExtResource("2_ahnad")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rry3j")
