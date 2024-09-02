@@ -37,4 +37,5 @@ func _physics_process(delta: float) -> void:
 	if visible:
 		if not was_visible:
 			Scoreboard._upload_score(Globals.score)
+			Sounds.play_death()
 			was_visible = true

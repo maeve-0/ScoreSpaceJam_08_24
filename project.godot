@@ -15,6 +15,10 @@ run/main_scene="res://assets/scenes/loading.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://audio_bus_layout.tres"
+
 [autoload]
 
 CaptureMouse="*res://assets/scripts/autoloads/capture_mouse.gd"
@@ -22,6 +26,7 @@ LavaControl="*res://assets/scripts/autoloads/lava_control.gd"
 Globals="*res://assets/scripts/autoloads/globals.gd"
 Scoreboard="*res://assets/scripts/autoloads/scoreboard.gd"
 Music="*res://assets/scenes/autoloads/music.tscn"
+Sounds="*res://assets/scenes/autoloads/sounds.tscn"
 
 [editor]
 

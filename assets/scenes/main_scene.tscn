@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://vav1jg5ktd2u"]
+[gd_scene load_steps=24 format=3 uid="uid://vav1jg5ktd2u"]
 
 [ext_resource type="Script" path="res://assets/scripts/main_scene.gd" id="1_m3xbk"]
 [ext_resource type="PackedScene" uid="uid://sgoqupvnmjat" path="res://assets/scenes/segments/start_segment.tscn" id="2_0bj11"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://assets/scripts/weapon_smudge.gd" id="10_mgl66"]
 [ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="11_alwep"]
 [ext_resource type="Texture2D" uid="uid://7gg7dnsl47wj" path="res://assets/textures/crosshair.png" id="11_mw0uh"]
+[ext_resource type="Script" path="res://assets/scripts/pain_indication.gd" id="11_scaph"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ll147"]
 size = Vector3(100, 1, 500)
@@ -133,6 +134,17 @@ offset_bottom = 40.0
 texture = ExtResource("9_0c52s")
 expand_mode = 1
 script = ExtResource("10_mgl66")
+
+[node name="pain_indication" type="ColorRect" parent="ui"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0.0627451, 0.254902)
+script = ExtResource("11_scaph")
 
 [node name="crosshair" type="TextureRect" parent="ui"]
 layout_mode = 1

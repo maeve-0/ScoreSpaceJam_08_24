@@ -72,6 +72,7 @@ func _physics_process(delta: float) -> void:
 
 	if player_input['attack'] and Globals.player_attack_time <= 0:
 		Globals.player_attack_time = 0.5
+		Sounds.play_woosh()
 
 	var input_dir := player_input['movement'] as Vector2
 	var direction := (
@@ -129,6 +130,8 @@ func check_damage(delta: float):
 		var normal := collision.get_normal()
 		if normal.angle_to(lava_normal) <= _45_DEGREES:
 			take_lava_damage(delta)
+			Sounds.play_pain()
+			Globals.player_pain_time = 0.2
 			break
 
 
