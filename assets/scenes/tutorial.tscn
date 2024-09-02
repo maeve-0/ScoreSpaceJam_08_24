@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_sqtjl"]
 [ext_resource type="ArrayMesh" uid="uid://dif2qeu4e8jfs" path="res://assets/meshes/segments/tutorial.obj" id="3_0uckw"]
 [ext_resource type="Material" uid="uid://cnpxysamd43ef" path="res://assets/materials/start_segment.tres" id="4_kid28"]
-[ext_resource type="Texture2D" uid="uid://c17d6l1jyw15w" path="res://assets/textures/tutorial.png" id="5_s3x87"]
+[ext_resource type="Texture2D" uid="uid://dijlefo382jm5" path="res://assets/textures/tutorial_wall.png" id="6_1mx84"]
 [ext_resource type="Script" path="res://assets/scripts/death_barrier.gd" id="6_66mkg"]
 [ext_resource type="PackedScene" uid="uid://cogev7onc5v72" path="res://assets/scenes/enemy.tscn" id="7_02hho"]
 [ext_resource type="Script" path="res://assets/scripts/weapon.gd" id="9_dbnln"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bxjfvebx4m0d6" path="res://assets/scenes/pause.tscn" id="19_eige8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebsak"]
-albedo_texture = ExtResource("5_s3x87")
+albedo_texture = ExtResource("6_1mx84")
 texture_filter = 0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3o6om"]
