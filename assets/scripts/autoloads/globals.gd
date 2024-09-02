@@ -6,6 +6,7 @@ var menu_stars_rotation := Vector3.ZERO
 
 var player: Player
 var player_attack_time := 0.0
+var player_max_distance := 0.0
 
 
 func _physics_process(delta: float) -> void:

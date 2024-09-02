@@ -13,7 +13,7 @@ var time := 0.0
 
 
 func _ready():
-	if randi() % 100 > 50:
+	if randi() % 100 > (50 + int(Globals.player_max_distance/1000.0 * 50.0)):
 		queue_free()
 
 	attack_timeout = randf() * ATTACK_TIMEOUT
