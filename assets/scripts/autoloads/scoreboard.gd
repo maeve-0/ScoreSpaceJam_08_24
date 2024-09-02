@@ -1,14 +1,18 @@
 extends Node
 
 
-const CONFIG_FILE_PATH = 'user://LootLocker.data'
+const is_prod = true
+
+var CONFIG_FILE_PATH = 'user://LootLocker.datap' if is_prod else'user://LootLocker.data'
 
 const PAGE_SIZE = 20
 
 
 # Use this game API key if you want to test it with a functioning leaderboard
-var game_API_key = "dev_802fe359e7c64fd1861fdeedc02cc7d7"
-var development_mode = true
+var prod_API_key = 'prod_0269099c2f6540c19b254fcf6159464e'
+var dev_API_key = "dev_802fe359e7c64fd1861fdeedc02cc7d7"
+var game_API_key = prod_API_key if is_prod else dev_API_key
+var development_mode = not is_prod
 var leaderboard_key = "scoreboard"
 var session_token = ""
 
