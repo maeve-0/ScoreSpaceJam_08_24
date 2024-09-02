@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c30coryd2oda7"]
+[gd_scene load_steps=12 format=3 uid="uid://c30coryd2oda7"]
 
 [ext_resource type="Script" path="res://assets/scripts/autoloads/sounds.gd" id="1_mbdiq"]
 [ext_resource type="AudioStream" uid="uid://cqain0jscqsr" path="res://assets/sfx/pain1.wav" id="2_jnl7q"]
@@ -6,21 +6,51 @@
 [ext_resource type="AudioStream" uid="uid://d2kga03grs3y5" path="res://assets/sfx/pain3.wav" id="4_1rp5u"]
 [ext_resource type="AudioStream" uid="uid://060pxvyvrwy" path="res://assets/sfx/pain4.wav" id="5_ueh3a"]
 [ext_resource type="AudioStream" uid="uid://bj1ldru70xrof" path="res://assets/sfx/death.wav" id="6_amoh7"]
+[ext_resource type="AudioStream" uid="uid://4es36hogtet0" path="res://assets/sfx/woosh1.wav" id="7_bi71y"]
+[ext_resource type="AudioStream" uid="uid://dbc3maatk8m2e" path="res://assets/sfx/woosh2.wav" id="8_ge1kb"]
+[ext_resource type="AudioStream" uid="uid://c042vhsalpt15" path="res://assets/sfx/woosh3.wav" id="9_kceeu"]
+[ext_resource type="AudioStream" uid="uid://rg6ks7x6g5xe" path="res://assets/sfx/slime_kill.wav" id="10_1kfj4"]
+[ext_resource type="AudioStream" uid="uid://sgl23qltvtb5" path="res://assets/sfx/cut.wav" id="11_64tw0"]
 
 [node name="sounds" type="Node"]
 script = ExtResource("1_mbdiq")
 
 [node name="pain1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jnl7q")
+bus = &"sfx"
 
 [node name="pain2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_c2s32")
+bus = &"sfx"
 
 [node name="pain3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_1rp5u")
+bus = &"sfx"
 
 [node name="pain4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ueh3a")
+bus = &"sfx"
 
 [node name="death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_amoh7")
+bus = &"sfx"
+
+[node name="woosh1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_bi71y")
+bus = &"sfx"
+
+[node name="woosh2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ge1kb")
+bus = &"sfx"
+
+[node name="woosh3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_kceeu")
+bus = &"sfx"
+
+[node name="slime_kill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_1kfj4")
+bus = &"sfx"
+
+[node name="cut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_64tw0")
+bus = &"sfx"

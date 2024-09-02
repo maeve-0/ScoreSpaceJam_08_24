@@ -9,6 +9,8 @@ script = ExtResource("1_j021t")
 
 [node name="menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ughqu")
+bus = &"music"
 
 [node name="gameplay" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e6x15")
+bus = &"music"

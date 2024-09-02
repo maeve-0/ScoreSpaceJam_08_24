@@ -10,3 +10,7 @@ func on_resize():
 func _ready():
 	on_resize()
 	get_viewport().connect('size_changed', on_resize)
+
+
+func _physics_process(delta: float) -> void:
+	visible = Globals.player_health > 0.0

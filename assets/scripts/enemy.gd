@@ -11,6 +11,8 @@ var attack_timeout: float
 
 var time := 0.0
 
+@onready var shoot_sounds := get_node('body/shoot_sounds') as Node3D
+
 
 func _ready():
 	if randi() % 100 > (50 + int(Globals.player_max_distance/1000.0 * 50.0)):
@@ -30,14 +32,19 @@ func _physics_process(delta: float) -> void:
 	body.look_at(Globals.player.global_position, to_global(Vector3.UP) - global_position)
 	body.rotation.x = 0.0
 
-	attack_timeout -= delta
-	if attack_timeout <= 0:
-		attack()
-		attack_timeout += ATTACK_TIMEOUT
+	if Globals.player_health > 0.0:
+		attack_timeout -= delta
+		if attack_timeout <= 0:
+			var sound_index := randi() % shoot_sounds.get_child_count()
+			shoot_sounds.get_child(sound_index).play()
+			attack()
+			attack_timeout += ATTACK_TIMEOUT
 
 	if Globals.player_attack_time > 0.2:
 		if Globals.player.global_position.distance_squared_to(global_position) < DEATH_DISTANCE * DEATH_DISTANCE:
 			Globals.score += 30
+			Sounds.play_slime_kill()
+			Sounds.play_cut()
 			queue_free()
 
 
