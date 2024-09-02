@@ -28,6 +28,9 @@ func _physics_process(delta: float) -> void:
 		particle_emitter.emitting = true
 		return
 
+	if get_tree().current_scene.scene_file_path != 'res://assets/scenes/main_scene.tscn':
+		return
+
 	var lava_normal: Vector3 = {
 		LavaControl.State.FLOOR: Vector3.UP,
 		LavaControl.State.LEFT_WALL: Vector3.RIGHT,
