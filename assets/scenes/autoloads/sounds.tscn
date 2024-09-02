@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://c30coryd2oda7"]
+
+[ext_resource type="Script" path="res://assets/scripts/autoloads/sounds.gd" id="1_mbdiq"]
+[ext_resource type="AudioStream" uid="uid://cqain0jscqsr" path="res://assets/sfx/pain1.wav" id="2_jnl7q"]
+[ext_resource type="AudioStream" uid="uid://c21lvxha5itdy" path="res://assets/sfx/pain2.wav" id="3_c2s32"]
+[ext_resource type="AudioStream" uid="uid://d2kga03grs3y5" path="res://assets/sfx/pain3.wav" id="4_1rp5u"]
+[ext_resource type="AudioStream" uid="uid://060pxvyvrwy" path="res://assets/sfx/pain4.wav" id="5_ueh3a"]
+[ext_resource type="AudioStream" uid="uid://bj1ldru70xrof" path="res://assets/sfx/death.wav" id="6_amoh7"]
+
+[node name="sounds" type="Node"]
+script = ExtResource("1_mbdiq")
+
+[node name="pain1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jnl7q")
+
+[node name="pain2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c2s32")
+
+[node name="pain3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1rp5u")
+
+[node name="pain4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ueh3a")
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_amoh7")

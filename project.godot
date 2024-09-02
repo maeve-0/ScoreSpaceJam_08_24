@@ -22,6 +22,7 @@ LavaControl="*res://assets/scripts/autoloads/lava_control.gd"
 Globals="*res://assets/scripts/autoloads/globals.gd"
 Scoreboard="*res://assets/scripts/autoloads/scoreboard.gd"
 Music="*res://assets/scenes/autoloads/music.tscn"
+Sounds="*res://assets/scenes/autoloads/sounds.tscn"
 
 [editor]
 

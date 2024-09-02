@@ -129,6 +129,8 @@ func check_damage(delta: float):
 		var normal := collision.get_normal()
 		if normal.angle_to(lava_normal) <= _45_DEGREES:
 			take_lava_damage(delta)
+			Sounds.play_pain()
+			Globals.player_pain_time = 0.2
 			break
 
 

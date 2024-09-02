@@ -13,6 +13,8 @@ func on_body_enter(body):
 	if body is Player:
 		Globals.player_health -= 0.2
 		body.healing_timeout = 3.0
+		Sounds.play_pain()
+		Globals.player_pain_time = 0.2
 	queue_free()
 
 
