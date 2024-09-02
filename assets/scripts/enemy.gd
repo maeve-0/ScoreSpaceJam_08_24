@@ -13,9 +13,11 @@ var time := 0.0
 
 @onready var shoot_sounds := get_node('body/shoot_sounds') as Node3D
 
+@export var always_show := false
+
 
 func _ready():
-	if randi() % 100 > (50 + int(Globals.player_max_distance/1000.0 * 50.0)):
+	if not always_show and randi() % 100 > (50 + int(Globals.player_max_distance/1000.0 * 50.0)):
 		queue_free()
 
 	attack_timeout = randf() * ATTACK_TIMEOUT

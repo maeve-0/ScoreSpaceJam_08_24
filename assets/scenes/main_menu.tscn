@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="4_v8nfi"]
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="5_hgkj0"]
 [ext_resource type="Script" path="res://assets/scripts/main_menu/buttons.gd" id="7_rb5i2"]
-[ext_resource type="Script" path="res://assets/scripts/volume_sliders.gd" id="8_fllp4"]
+[ext_resource type="PackedScene" uid="uid://dw0kau30j4ias" path="res://assets/scenes/volume_sliders.tscn" id="8_fwiyr"]
 
 [node name="main_menu" type="Node3D"]
 script = ExtResource("1_eqdux")
@@ -79,6 +79,10 @@ script = ExtResource("7_rb5i2")
 layout_mode = 2
 text = "START"
 
+[node name="tutorial_button" parent="ui/buttons" instance=ExtResource("4_v8nfi")]
+layout_mode = 2
+text = "TUTORIAL"
+
 [node name="scores_button" parent="ui/buttons" instance=ExtResource("4_v8nfi")]
 layout_mode = 2
 text = "SCORES"
@@ -87,76 +91,6 @@ text = "SCORES"
 layout_mode = 2
 text = "EXIT"
 
-[node name="volume_sliders" type="VBoxContainer" parent="ui"]
+[node name="volume_sliders" parent="ui" instance=ExtResource("8_fwiyr")]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -100.0
-offset_bottom = 100.0
-grow_horizontal = 0
-grow_vertical = 2
-script = ExtResource("8_fllp4")
-
-[node name="slider_master" type="Control" parent="ui/volume_sliders"]
-custom_minimum_size = Vector2(320, 64)
-layout_mode = 2
-
-[node name="h_slider" type="HSlider" parent="ui/volume_sliders/slider_master"]
-layout_mode = 0
-offset_top = 35.0
-offset_right = 285.0
-offset_bottom = 51.0
-min_value = -42.0
-max_value = 0.0
-
-[node name="label" type="Label" parent="ui/volume_sliders/slider_master"]
-layout_mode = 2
-offset_right = 200.0
-offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("5_hgkj0")
-theme_override_font_sizes/font_size = 32
-text = "MASTER:"
-
-[node name="slider_sfx" type="Control" parent="ui/volume_sliders"]
-custom_minimum_size = Vector2(200, 64)
-layout_mode = 2
-
-[node name="h_slider" type="HSlider" parent="ui/volume_sliders/slider_sfx"]
-layout_mode = 0
-offset_top = 35.0
-offset_right = 285.0
-offset_bottom = 51.0
-min_value = -42.0
-max_value = 0.0
-
-[node name="label" type="Label" parent="ui/volume_sliders/slider_sfx"]
-layout_mode = 2
-offset_right = 200.0
-offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("5_hgkj0")
-theme_override_font_sizes/font_size = 32
-text = "SOUND EFFECTS:"
-
-[node name="slider_music" type="Control" parent="ui/volume_sliders"]
-custom_minimum_size = Vector2(200, 64)
-layout_mode = 2
-
-[node name="h_slider" type="HSlider" parent="ui/volume_sliders/slider_music"]
-layout_mode = 0
-offset_top = 35.0
-offset_right = 285.0
-offset_bottom = 51.0
-min_value = -42.0
-max_value = 0.0
-
-[node name="label" type="Label" parent="ui/volume_sliders/slider_music"]
-layout_mode = 2
-offset_right = 200.0
-offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("5_hgkj0")
-theme_override_font_sizes/font_size = 32
-text = "MUSIC:"
+offset_left = -320.0

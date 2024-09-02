@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://nawb87lgtvng" path="res://assets/music/action-loop-e-90-bpm-brvhrtz-233462.mp3" id="3_e6x15"]
 
 [node name="music" type="Node"]
+process_mode = 3
 script = ExtResource("1_j021t")
 
 [node name="menu" type="AudioStreamPlayer" parent="."]

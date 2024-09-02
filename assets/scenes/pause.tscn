@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxjfvebx4m0d6"]
+
+[ext_resource type="Script" path="res://assets/scripts/pause.gd" id="1_7jsho"]
+[ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="2_yvifg"]
+[ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="3_rke1u"]
+[ext_resource type="PackedScene" uid="uid://dw0kau30j4ias" path="res://assets/scenes/volume_sliders.tscn" id="4_l2j07"]
+
+[node name="pause" type="ColorRect"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.213542, 0.648438, 0.664063, 0.329412)
+script = ExtResource("1_7jsho")
+
+[node name="label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_yvifg")
+theme_override_font_sizes/font_size = 64
+text = "PAUSED"
+
+[node name="resume_button" parent="." instance=ExtResource("3_rke1u")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = 60.0
+offset_right = 223.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESUME [TAB]"
+
+[node name="exit_button" parent="." instance=ExtResource("3_rke1u")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = 108.0
+offset_right = 223.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT TO MAIN MENU"
+
+[node name="volume_sliders" parent="." instance=ExtResource("4_l2j07")]
+layout_mode = 1
+anchors_preset = 1
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = -320.0
+offset_top = 0.0
+offset_bottom = 200.0
+grow_vertical = 1
