@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c17d6l1jyw15w" path="res://assets/textures/tutorial.png" id="5_s3x87"]
 [ext_resource type="Script" path="res://assets/scripts/death_barrier.gd" id="6_66mkg"]
 [ext_resource type="PackedScene" uid="uid://cogev7onc5v72" path="res://assets/scenes/enemy.tscn" id="7_02hho"]
-[ext_resource type="Texture2D" uid="uid://b64ba8fr8vadr" path="res://assets/textures/sword.png" id="8_43pqc"]
 [ext_resource type="Script" path="res://assets/scripts/weapon.gd" id="9_dbnln"]
 [ext_resource type="PackedScene" uid="uid://dqn3myqa5vobc" path="res://assets/scenes/grabbable.tscn" id="9_kbehk"]
+[ext_resource type="Texture2D" uid="uid://cfar4ootwprr3" path="res://assets/textures/sword_hand.png" id="10_0iblu"]
 [ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="10_7xf4g"]
 [ext_resource type="Texture2D" uid="uid://coprgya710k1f" path="res://assets/textures/smudge.png" id="10_iodsa"]
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="11_3j7hq"]
@@ -150,6 +150,10 @@ transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 2, 
 [node name="grabbable4" parent="." instance=ExtResource("9_kbehk")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4, 2, -1)
 
+[node name="grabbable7" parent="." instance=ExtResource("9_kbehk")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 12, 2, 7)
+size = Vector2(4, 4)
+
 [node name="ui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -162,7 +166,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
-texture = ExtResource("8_43pqc")
+texture = ExtResource("10_0iblu")
 expand_mode = 1
 script = ExtResource("9_dbnln")
 
@@ -315,7 +319,3 @@ text = "BACK TO MENU"
 
 [node name="pause" parent="ui" instance=ExtResource("19_eige8")]
 layout_mode = 1
-
-[node name="grabbable7" parent="." instance=ExtResource("9_kbehk")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 12, 2, 7)
-size = Vector2(4, 4)
