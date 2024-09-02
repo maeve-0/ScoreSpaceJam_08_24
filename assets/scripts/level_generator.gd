@@ -7,6 +7,7 @@ var segments = [
 	preload('res://assets/scenes/segments/segment_2.tscn'),
 	preload('res://assets/scenes/segments/segment_3.tscn'),
 	preload('res://assets/scenes/segments/segment_4.tscn'),
+	preload('res://assets/scenes/segments/segment_5.tscn'),
 ]
 
 
