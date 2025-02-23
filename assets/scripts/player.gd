@@ -6,9 +6,10 @@ extends CharacterBody3D
 @onready var y_rotation := get_node('up_vector/y_rotation') as Node3D
 @onready var up_vector := get_node('up_vector') as Node3D
 @onready var actual_camera := get_node('camera') as Camera3D
+@onready var camera_rotation := get_node('up_vector/camera_rotation') as Node3D
 
 
-const MAX_VERTICAL_CAMERA_ANGLE = deg_to_rad(90.0)
+const MAX_VERTICAL_CAMERA_ANGLE = deg_to_rad(89.9)
 const MOUSE_SENSITIVITY = 0.001
 const SPEED = 8.0
 const JUMP_VELOCITY = 10.0
@@ -140,6 +141,14 @@ func check_damage(delta: float):
 func take_lava_damage(delta):
 	Globals.player_health -= delta
 	healing_timeout = 3.0
+
+
+func update_rotation_for_grab(up: Vector3):
+	var basis_z := camera.global_basis.z
+	up_vector.look_at(global_position + Vector3(0.0, 0.0, -1.0), up)
+	camera_rotation.look_at(camera.global_position - basis_z, up)
+	y_rotation.rotation.y = camera_rotation.rotation.y
+	camera.rotation.x = camera_rotation.rotation.x
 
 
 func collect_input() -> Dictionary:
