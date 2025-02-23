@@ -12,9 +12,6 @@ func on_master_slider_change(first_time_adjust = null):
 	var sfx_index := AudioServer.get_bus_index('Master')
 	AudioServer.set_bus_mute(sfx_index, master_slider.value == -42.0)
 	AudioServer.set_bus_volume_db(sfx_index, master_slider.value)
-	if first_time_adjust == null:
-		return
-	save()
 
 
 func on_sfx_slider_change(first_time_adjust = null):
@@ -25,23 +22,16 @@ func on_sfx_slider_change(first_time_adjust = null):
 		return
 
 	Sounds.play_slime_kill()
-	save()
 
 
 func on_music_slider_change(first_time_adjust = null):
 	var sfx_index := AudioServer.get_bus_index('music')
 	AudioServer.set_bus_mute(sfx_index, music_slider.value == -42.0)
 	AudioServer.set_bus_volume_db(sfx_index, music_slider.value)
-	if first_time_adjust == null:
-		return
-	save()
 
 
 func on_sensitivity_slider_change(first_time_adjust = null):
 	Globals.mouse_sensitivity = slider_sensitivity.value
-	if first_time_adjust == null:
-		return
-	save()
 
 
 func _ready() -> void:
@@ -56,10 +46,16 @@ func _ready() -> void:
 	on_music_slider_change()
 	on_sensitivity_slider_change()
 
-	master_slider.connect('drag_ended', on_master_slider_change)
-	sfx_slider.connect('drag_ended', on_sfx_slider_change)
-	music_slider.connect('drag_ended', on_music_slider_change)
-	slider_sensitivity.connect('drag_ended', on_sensitivity_slider_change)
+	master_slider.connect('value_changed', on_master_slider_change)
+	master_slider.connect('drag_ended', func(_ignore): save())
+	sfx_slider.connect('drag_ended', func(_ignore):
+		on_sfx_slider_change('no')
+		save()
+	)
+	music_slider.connect('value_changed', on_music_slider_change)
+	music_slider.connect('drag_ended', func(_ignore): save())
+	slider_sensitivity.connect('value_changed', on_sensitivity_slider_change)
+	slider_sensitivity.connect('drag_ended', func(_ignore): save())
 
 
 func save():

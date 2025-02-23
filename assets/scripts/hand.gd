@@ -66,6 +66,7 @@ func check_collision():
 	if collider is Grabbable:
 		lifetime = 1.0
 		state = State.GRABBED
+		player.update_rotation_for_grab(collider.global_basis.y)
 	elif collider is SlimeProjectile or collider is Enemy:
 		return
 	else:
