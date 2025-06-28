@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://db1w1p6s6c7xv"]
 
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="1_snqc6"]
-[ext_resource type="Script" path="res://assets/scripts/loading/label.gd" id="2_1g360"]
+[ext_resource type="Script" uid="uid://deoaaygo3fo7t" path="res://assets/scripts/loading/label.gd" id="2_1g360"]
 
 [node name="loading" type="Control"]
 layout_mode = 3

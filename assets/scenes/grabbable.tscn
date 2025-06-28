@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqn3myqa5vobc"]
 
-[ext_resource type="Script" path="res://assets/scripts/grabable.gd" id="1_u1efb"]
+[ext_resource type="Script" uid="uid://c0q0d7egy6c0h" path="res://assets/scripts/grabable.gd" id="1_u1efb"]
 [ext_resource type="Texture2D" uid="uid://sv0omv08ejjw" path="res://assets/textures/VFX/magneto_vfx.png" id="2_maa04"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2025s"]

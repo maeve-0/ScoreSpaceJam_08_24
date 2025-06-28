@@ -150,8 +150,8 @@ func _on_leaderboard_request_completed(result, response_code, headers, body):
 	for item in data.items if data and data.items != null else []:
 		score_table_page.append({
 			'player_name': item['player']['name'] if item['player']['name'] and item['player']['name'] != '' else item['player']['public_uid'],
-			'rank': item['rank'],
-			'score': item['score'],
+			'rank': int(item['rank']),
+			'score': int(item['score']),
 			'member_id': item['member_id'],
 		})
 

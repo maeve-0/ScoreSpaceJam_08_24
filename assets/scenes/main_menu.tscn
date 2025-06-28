@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://bgnefcojxt31c"]
 
-[ext_resource type="Script" path="res://assets/scripts/main_menu/main_menu.gd" id="1_eqdux"]
+[ext_resource type="Script" uid="uid://byqw26i6re23" path="res://assets/scripts/main_menu/main_menu.gd" id="1_eqdux"]
 [ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_vvmnb"]
-[ext_resource type="Script" path="res://assets/scripts/main_menu/name_controls.gd" id="3_do8jj"]
+[ext_resource type="Script" uid="uid://cbkxsat1q76gt" path="res://assets/scripts/main_menu/name_controls.gd" id="3_do8jj"]
 [ext_resource type="Texture2D" uid="uid://56t5covwl6lb" path="res://assets/textures/logo_grabbity.png" id="3_hmu1p"]
 [ext_resource type="PackedScene" uid="uid://bapdtmghl5qvi" path="res://assets/scenes/ui/custom_line_edit.tscn" id="3_rcdcn"]
 [ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="4_v8nfi"]
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="5_hgkj0"]
-[ext_resource type="Script" path="res://assets/scripts/main_menu/buttons.gd" id="7_rb5i2"]
+[ext_resource type="Script" uid="uid://pc2ny0y6qjcu" path="res://assets/scripts/main_menu/buttons.gd" id="7_rb5i2"]
 [ext_resource type="PackedScene" uid="uid://dw0kau30j4ias" path="res://assets/scenes/volume_sliders.tscn" id="8_fwiyr"]
 
 [node name="main_menu" type="Node3D"]

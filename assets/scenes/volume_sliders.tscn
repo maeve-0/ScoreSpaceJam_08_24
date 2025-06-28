@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dw0kau30j4ias"]
 
-[ext_resource type="Script" path="res://assets/scripts/volume_sliders.gd" id="1_3hcyd"]
+[ext_resource type="Script" uid="uid://ci070pmmkqsm6" path="res://assets/scripts/volume_sliders.gd" id="1_3hcyd"]
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="2_netyv"]
 
 [node name="volume_sliders" type="VBoxContainer"]

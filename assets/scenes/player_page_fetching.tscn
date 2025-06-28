@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://fw2q1yffh1ps"]
 
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="1_6kdjn"]
-[ext_resource type="Script" path="res://assets/scripts/main_menu/player_page_fetching.gd" id="2_01w7f"]
+[ext_resource type="Script" uid="uid://bnrpg27p4rltg" path="res://assets/scripts/main_menu/player_page_fetching.gd" id="2_01w7f"]
 
 [node name="loading" type="Control"]
 layout_mode = 3

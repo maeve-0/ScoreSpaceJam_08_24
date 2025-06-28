@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://sgoqupvnmjat"]
 
-[ext_resource type="Script" path="res://assets/scripts/segment.gd" id="1_3o8wd"]
+[ext_resource type="Script" uid="uid://dosoi40d0stmc" path="res://assets/scripts/segment.gd" id="1_3o8wd"]
 [ext_resource type="ArrayMesh" uid="uid://lrka8jonuvin" path="res://assets/meshes/segments/start_segment.obj" id="1_vr06o"]
 [ext_resource type="Material" uid="uid://cnpxysamd43ef" path="res://assets/materials/start_segment.tres" id="3_1t3cd"]
 [ext_resource type="PackedScene" uid="uid://dqn3myqa5vobc" path="res://assets/scenes/grabbable.tscn" id="3_krg5y"]

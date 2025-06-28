@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cme7qmqqwtlie"]
 
-[ext_resource type="Script" path="res://assets/scripts/main_menu/main_menu.gd" id="1_udey0"]
+[ext_resource type="Script" uid="uid://byqw26i6re23" path="res://assets/scripts/main_menu/main_menu.gd" id="1_udey0"]
 [ext_resource type="PackedScene" uid="uid://cb8ubj1ri7k0y" path="res://assets/scenes/stars.tscn" id="2_1g5l6"]
-[ext_resource type="Script" path="res://assets/scripts/scoreboard_ui.gd" id="3_skx5y"]
+[ext_resource type="Script" uid="uid://kbtndmo2xu8" path="res://assets/scripts/scoreboard_ui.gd" id="3_skx5y"]
 [ext_resource type="FontFile" uid="uid://dssms3h3tlqql" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="4_xy0f7"]
 [ext_resource type="PackedScene" uid="uid://cx7ivxfsrhu5b" path="res://assets/scenes/ui/custom_button.tscn" id="5_o4fum"]
 [ext_resource type="PackedScene" uid="uid://dlqhq1empcmql" path="res://assets/scenes/ui/scoreboard_entry.tscn" id="6_ebwfw"]
